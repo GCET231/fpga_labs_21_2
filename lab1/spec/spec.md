@@ -4,7 +4,7 @@
 Prof. João Bittencourt
 </p>
 <p align="center">
-Monitor: TBD</p>
+Monitor: Éverton Gomes dos Santos</p>
 <p align="center">
 Centro de Ciências Exatas e Tecnológicas
 </p>
