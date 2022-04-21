@@ -266,9 +266,7 @@ Observe a forma de onda e certifique-se de que a saída produzida pelo _carry ou
 
 Por último, analise o diagrama esquemático do circuito que você acabou de projetar. Na janela do Quartus Prime clique em **Tools** `>` **Netlist Viewers** `>` **RTL Viewer**.
 
-## Entregáveis do Laboratório
-
-### Acompanhamento (entrega: sexta-feira 29 de abril, 2022)
+## Acompanhamento (entrega: sexta-feira 29 de abril, 2022)
 
 Para este laboratório, tenha estes itens prontos para mostrar ao seu professor/monitor:
 
@@ -280,5 +278,8 @@ Para este laboratório, tenha estes itens prontos para mostrar ao seu professor/
 
 Este laboratório é o resultado do trabalho de docentes e monitores de GCET231 ao longo dos anos, incluindo:
 
-- **21.2:** Éverton Santos
-- **21.1:** Matheus Pithon, Éverton Santos
+- **18.1:** Caio França dos Santos
+- **18.2:** Matheus Rosa Pithon
+- **20.2:** Matheus Rosa Pithon
+- **21.1:** Matheus Rosa Pithon, Éverton Gomes dos Santos
+- **21.2:** Éverton Gomes dos Santos
