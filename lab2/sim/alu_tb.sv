@@ -26,7 +26,7 @@ module alu_tb;
    wire FlagN, FlagC, FlagV, FlagZ;
 
    // Instancia a Unit Under Test (UUT)
-   ALU #(width) uut (.A(A), .B(B), .R(R), .ALUfn(ALUfn),
+   alu #(width) uut (.A(A), .B(B), .R(R), .ALUfn(ALUfn),
       .FlagN(FlagN), .FlagC(FlagC), .FlagV(FlagV), .FlagZ(FlagZ)
         );
    
