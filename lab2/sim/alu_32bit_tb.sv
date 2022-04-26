@@ -28,7 +28,7 @@ module alu_32bit_tb;
    wire FlagZ;
 
    // Instancia a Unit Under Test (UUT)
-   ALU #(width) uut (.A(A), .B(B), .R(R), .ALUfn(ALUfn),
+   alu #(width) uut (.A(A), .B(B), .R(R), .ALUfn(ALUfn),
       //.FlagN(FlagN), .FlagC(FlagC), .FlagV(FlagV), // Retire este comentário para Parte 3
       .FlagZ(FlagZ)
         );
