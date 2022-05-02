@@ -45,7 +45,7 @@ Todas as mudanças no valor do contador -- sejam elas contando ou redefinindo --
 
 Use o código à seguir para projetar o contador:
 
-```verilog
+```systemverilog
 `timescale 1ns / 1ps
 `default_nettype none
 
@@ -57,7 +57,7 @@ module countermod4 (
 
    always_ff @(posedge clock)
 	begin : mod4_counter
-      value <= reset ? 2'b00 : (value + 1'b1);
+		value <= reset ? 2'b00 : (value + 1'b1);
 	end
 
 endmodule
@@ -98,7 +98,7 @@ Use o contador de módulo-4 como ponto de partida, copiando ele dentro de um nov
 
 Use o código a seguir para implementar o contador, completando as regiões comentadas.
 
-```verilog
+```systemverilog
 `timescale 1ns / 1ps
 `default_nettype none
 
@@ -163,7 +163,7 @@ A especificação funcional do seu módulo deve seguir as regras à seguir:
 
 Um esboço do código para o módulo `xycounter` é fornecido à seguir.
 
-```verilog
+```systemverilog
 `timescale 1ns / 1ps
 `default_nettype none
 

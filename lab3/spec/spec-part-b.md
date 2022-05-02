@@ -47,7 +47,7 @@ A seguir apresentamos uma lista elencando os seus componentes principais sob o p
 - Displays de 7 segmentos
 - Memórias Flash e RAM
 
-## Parte 1 - Um codificador para display de 7-segmentos
+## Um codificador para display de 7-segmentos
 
 Vamos começar projetando um codificador capaz de converter um único dígito decimal (valor de 4-bits) em um padrão binário capaz de exibir sua representação em um _display_ de 7-segmentos. Siga os passos dos roteiros anteriores para criar um novo projeto.
 
