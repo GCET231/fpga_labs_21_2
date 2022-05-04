@@ -24,7 +24,7 @@ module countermod7 (
 	output logic [2:0] value // Observe como esta linha é diferente da Parte I
 	);
 
-	always_ff @(posedge clock) begin
+	always @(posedge clock) begin
 		value <= reset ? 3'b000 : (value /* complete o código aqui */);
 	end
 

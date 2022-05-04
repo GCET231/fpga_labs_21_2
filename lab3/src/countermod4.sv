@@ -24,7 +24,7 @@ module countermod4 (
 	output logic [1:0] value = 2'b00
 );
 
-	always_ff @(posedge clock) begin
+	always @(posedge clock) begin
 		value <= reset ? 2'b00 : (value + 1'b1);
 	end
 

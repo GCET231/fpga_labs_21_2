@@ -55,7 +55,7 @@ module countermod4 (
 	output logic [1:0] value = 2'b00
 );
 
-   always_ff @(posedge clock)
+   always @(posedge clock)
 	begin : mod4_counter
 		value <= reset ? 2'b00 : (value + 1'b1);
 	end
@@ -63,17 +63,17 @@ module countermod4 (
 endmodule
 ```
 
-O código acima utiliza construtores que não estão presentes no padrão Verilog, mas estão no SystemVerilog: `logic` e `always_ff`. Portanto, quando você criar um novo arquivo de projeto, **garanta que ele é do tipo SystemVerilog**. Nomeie seu novo arquivo como `countermod4.sv`.
+O código acima utiliza um construtor que não está presente no padrão Verilog, mas estão no SystemVerilog, associado a um novo tipo de dado denominado `logic`. Portanto, quando você criar um novo arquivo de projeto, **garanta que ele é do tipo SystemVerilog**. Nomeie seu novo arquivo como `countermod4.sv`.
 
 Note o seguinte:
 
-- A primeira linha determina as unidades de tempo para todos os atrasos (semelhante ao que definimos no _testbench_) como nanosegundos com resolução de picossegundos. A segunda linha diz para o compilador para _não_ assumir que sinais não declarados são do tipo padrão `wire`. Ao suprimir o valor padrão, nós estamos forçando que sinais não declarados disparem erros de compilação. Isso ajuda a identificar vários erros de código e _será muito útil!_ **Utilize essa diretiva em qualquer projeto que dizer a partir de agora!**
+- A primeira linha determina as unidades de tempo para todos os atrasos (semelhante ao que definimos no _test bench_) como nanosegundos com resolução de picossegundos. A segunda linha diz para o compilador para _não_ assumir que sinais não declarados são do tipo padrão `wire`. Ao suprimir o valor padrão, nós estamos forçando que sinais não declarados disparem erros de compilação. Isso ajuda a identificar vários erros de código e _será muito útil!_ **Utilize essa diretiva em qualquer projeto que dizer a partir de agora!**
 - As entradas são declaradas como do tipo `wire` (uma vez que elas estão simplesmente vindo de um módulo externo), mas a saída aqui é do tipo `logic`, e não do tipo `wire`. O tipo `logic` é único da SystemVerilog, e representa diferentes tipos de implementações estruturais, dependendo da descrição do circuito. Especificamente, uma variável do tipo `logic` será mapeado para `wire` se sua descrição indicar uma função combinacional. Por outro lado, uma variável do tipo `logic` resultará em um _flip-flop_ sendo instanciado se sua descrição indicar a necessidade de um elemento de estado ou memória. Portanto, o tipo `logic` é usado para indicar que uma variável _pode_ (mas não necessariamente) precisa de _flip-flops_ em sua implementação.
-- O comando `always_ff` é um novo tipo de construtor de atribuição não-contínua da linguagem SystemVerilog. Ele é usado para determinar como o valor de um _flip-flop_ (registrador) deve ser atualizado. No exemplo acima, dizemos que sempre que houver uma borda positiva do clock (`always_ff@(posedge clock)`), `value` é atualizado para `value + 1` (se estiver contando) ou `0` (se acionado o sinal de `reset`). Deste modo, uma vez que `value` é atualizado dentro da atribuição não-contínua `always_ff`, ela irá implementar uma lógica sequencial usando _flip-flops_, ao invés de lógica combinacional, visto que o `value` é atualizado somente entre os pulsos periódicos do _clock_.
+<!-- - O comando `always_ff` é um novo tipo de construtor de atribuição não-contínua da linguagem SystemVerilog. Ele é usado para determinar como o valor de um _flip-flop_ (registrador) deve ser atualizado. No exemplo acima, dizemos que sempre que houver uma borda positiva do clock (`always_ff@(posedge clock)`), `value` é atualizado para `value + 1` (se estiver contando) ou `0` (se acionado o sinal de `reset`). Deste modo, uma vez que `value` é atualizado dentro da atribuição não-contínua `always_ff`, ela irá implementar uma lógica sequencial usando _flip-flops_, ao invés de lógica combinacional, visto que o `value` é atualizado somente entre os pulsos periódicos do _clock_. -->
 - No código acima, o operador de atribuição utiliza a chamada atribuição **não-bloqueante**, representado pelo símbolo `<=`. Não confunda com a operação "menor que ou igual"! Considere este símbolo como uma seta para a esquerda.
 - Por ser declarado como um vetor de 2-bits, o sinal `value` retornará para `0` ao incrementar o somador, quando `value` for igual a `3`.
 
-Para testar o código acima, utilize o _testbench_ fornecido junto com os arquivos de laboratório, dentro da pasta `sim` (`countermod4_tb_.sv`). Essa rotina de teste realiza o seguinte fluxo de operações:
+Para testar o código acima, utilize o _test bench_ fornecido junto com os arquivos de laboratório, dentro da pasta `sim` (`countermod4_tb_.sv`). Essa rotina de teste realiza o seguinte fluxo de operações:
 
 - Aguarda 5 ns;
 - Inicializa o _clock_ (borda positiva em 6 ns, com período de 2 ns);
@@ -81,7 +81,7 @@ Para testar o código acima, utilize o _testbench_ fornecido junto com os arquiv
 - Aciona o sinal de _reset_ para redefinir o contador de volta para 0; e
 - Libera o contador por mais 3 pulsos de clock;
 
-Certifique-se de ter analisado o _testbench_, linha por linha, e entenda o que cada comando faz! Se você formatar as formas de onda de modo a visualizar os sinais em decimal, você deve visualizar a representação exatamente como apresentada na figura a seguir.
+Certifique-se de ter analisado o _test bench_, linha por linha, e entenda o que cada comando faz! Se você formatar as formas de onda de modo a visualizar os sinais em decimal, você deve visualizar a representação exatamente como apresentada na figura a seguir.
 
 ![Simulação do Contador Módulo-4](img/captura_mod4.png)
 
@@ -108,20 +108,22 @@ module countermod7 (
 	output logic [2:0] value // Observe como esta linha difere o mod-4
 );
 
-	always_ff @(posedge clock) begin
+	always @(posedge clock) begin
 		value <= reset ? 3'b000 : /* Complete o codigo aqui */;
 	end
 
 endmodule
 ```
 
-Simule o seu novo contador usando o _testbench_ fornecido junto aos arquivos de laboratório (`countermod7_tb.sv`).
+Simule o seu novo contador usando o _test bench_ fornecido junto aos arquivos de laboratório (`countermod7_tb.sv`).
 
-> Certifique-se de entender todas as linhas do arquivo de teste!
+> 💁 Certifique-se de entender todas as linhas do arquivo de teste!
 
-Defina o formato de exibição dos dados (Radix) como **Unsigned** para todas as saídas. Se tudo der certo, sua saída deve reproduzir a sequência apresentada na descrição.
+Defina o formato de exibição dos dados (_Radix_) como **Unsigned** para todas as saídas. Se tudo der certo, sua saída deve reproduzir a sequência apresentada a seguir.
 
-### Questões de Diagnóstico
+![Resultado da simulação do contador Mod-7.](./img/captura_mod7.png)
+
+### 🎯 Responda as perguntas à seguir:
 
 > Por que o valor no _waveform_ é apresentado como `X` para os primeiros dois nanosegundos de sua simulação?
 
@@ -135,20 +137,22 @@ Copie a especificação do contador módulo-7 para um novo arquivo e salve-o com
 
 Sua tarefa agora consiste em modificar o contador módulo-7 de forma a incorporar um sinal de habilitação. Este novo sinal deve interromper a contagem até a próxima (uma ou várias) transição da borda de subida do _clock_.
 
-> Se o sinal de habilitação for igual a `0`, na próxima borda positiva do _clock_, o valor do contador não deve mudar.
+> 💁 Se o sinal de habilitação for igual a `0`, na próxima borda positiva do _clock_, o valor do contador não deve mudar.
 
 Este comportamento deve ser mantido enquanto o habilitador (`enable`) estiver em nível lógico baixo, proporcionando assim um mecanismo que permita "congelar" o contador por quanto tempo você desejar.
 
 De forma semelhante, quando o sinal habilitador é modificado para `1`, o contador volta a contar novamente de onde parou.
 
-Algumas observações:
+⚠️ Algumas observações importantes:
 
 - Se o sinal `enable` é `0` e `reset` é `1`, o contador deve ser redefinido. Ou seja, o `reset` tem _prioridade_ maior frente ao sinal de `enable`;
 - A atribuição ao valor deve ainda ser realizada usando um único comando (`value <= ...`). Você pode ainda dividir o comando em múltiplas linhas por questões de legibilidade, mas ainda assim, deve usar **somente um comando**.
 
-Utilize o _test bench_ fornecido junto aos arquivos de laboratório (`countermod7enable_tb.sv`).
+Utilize o _test bench_ fornecido junto aos arquivos de laboratório (`countermod7enable_tb.sv`). Mais uma vez, analise o _test bench_ com cautela e garanta que compreendeu cada linha do código.
 
-Mais uma vez, analise o _test bench_ com cautela e garanta que compreendeu cada linha do código.
+Se você especificou o módulo corretamente, sua simulação deve ser apresentada exatamente como na Figura a seguir.
+
+![Resultado da simulação do contador Mod-7 com enable.](./img/captura_mod7enable.png)
 
 ## Projetando um contador de duas dimensões
 
@@ -177,7 +181,7 @@ module xycounter #(
 	output logic [$clog2(HEIGHT)-1:0] y = 0
 );
 
-	always_ff @(posedge clock) begin
+	always @(posedge clock) begin
 		if (enable) begin
 			/* Coloque seu código aqui */
 		end
@@ -189,7 +193,9 @@ Certifique-se de entender todo o código que está presente no modelo acima, esp
 
 O _test bench_ para seu módulo foi fornecido junto com os arquivos de projeto como `xycounter_tb.sv`.
 
-Complete o código com as funcionalidades apresentadas acima, e simule usando este _test bench_ para verificar se o seu contador se comporta exatamente como esperado.
+Complete o código com as funcionalidades apresentadas acima, e simule usando este _test bench_ para verificar se o seu contador se comporta exatamente como esperado:
+
+![Resultado da simulação do contador XY.](./img/captura_xycounter.png)
 
 Você pode experimentar conjuntos de valores diferentes para largura (`WIDTH`) e altura (`HEIGHT`). Entretanto, você só precisa enviar os resultados para o _test bench_ fornecido.
 

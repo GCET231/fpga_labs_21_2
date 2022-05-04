@@ -32,7 +32,7 @@ module xycounter #(
 	output logic [$clog2(HEIGHT)-1:0] y = 0
 	);
 
-always_ff @(posedge clock) begin
+always @(posedge clock) begin
 	if (enable) begin
 		/* Coloque seu código aqui */
 	end	
