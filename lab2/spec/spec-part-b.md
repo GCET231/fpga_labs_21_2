@@ -295,7 +295,7 @@ Encerre a simulação, e crie uma visualização do esquemático da sua ULA. Ten
 
 > ✅ Você ainda vai aprender muito sobre como relacionar o esquemático do circuito com a descrição Verilog, e como identificar as correspondências entre os componentes do circuito e as linhas do código Verilog. Isso será importante para os futuros projetos!
 
-## Acompanhamento (entrega: terça-feira 10 de maio, 2022)
+## Acompanhamento (entrega: quarta-feira 11 de maio, 2022)
 
 ### O que entregar:
 
