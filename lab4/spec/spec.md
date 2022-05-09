@@ -1,5 +1,19 @@
 # Laboratório 4: Gerador de Sincronismo VGA
 
+<p align="center">
+Prof. João Carlos Bittencourt
+</p>
+<p align="center">
+Monitor: Éverton Gomes dos Santos</p>
+<p align="center">
+Centro de Ciências Exatas e Tecnológicas
+</p>
+<p align="center">
+Universidade Federal do Recôncavo da Bahia, Cruz das Almas
+</p>
+
+## Introdução
+
 Este laboratório é mais uma das atividades de instrumentação na plataforma de desenvolvimento DE2-115. O roteiro consiste de três etapas, cada qual construída com base na anterior.
 
 Ao longo desta prática você irá aprender a:
