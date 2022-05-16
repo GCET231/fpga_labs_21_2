@@ -162,9 +162,9 @@ As figuras a seguir apresentam um destaque para a representação que cada compo
 ![Caixa 64 x 64 azul](./img/blue-square.JPG) -->
 
 <p float="left">
-  <img alt="Caixa 64 x 64 vermelha." src="./img/red-square.JPG" height="300" />
-  <img alt="Caixa 64 x 64 verde." src="./img/green-square.JPG" height="300" />
-  <img alt="Caixa 64 x 64 azul." src="./img/blue-square.JPG" height="300" />
+  <img alt="Caixa 64 x 64 vermelha." src="./img/red-square.jpg" height="300" />
+  <img alt="Caixa 64 x 64 verde." src="./img/green-square.jpg" height="300" />
+  <img alt="Caixa 64 x 64 azul." src="./img/blue-square.jpg" height="300" />
 </p>
 
 ## Acompanhamento (entrega: sexta-feira 20 de maio, 2022)
