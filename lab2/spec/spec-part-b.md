@@ -156,8 +156,8 @@ Por padrão, os tipos de dado em SystemVerilog são `unsigned`. Entretanto, para
 Note ainda que o `shamt` só possui `$clog2(N)` bits (ex. 5 bits para operandos de 32 bits).
 
 - `<<` é o operador de deslocamento lógico à esquerda (`sll`)
-- `<<` é o operador de deslocamento lógico à direita (`srl`)
-- `>>` é o operador de deslocamento aritmético à direita (`sra`)
+- `>>` é o operador de deslocamento lógico à direita (`srl`)
+- `>>>` é o operador de deslocamento aritmético à direita (`sra`)
 
 Você deve agora analisar a estrutura de cada um dos dois módulos, descritos acima, através da visualização dos seus esquemáticos através do RTL Viewer.
 
