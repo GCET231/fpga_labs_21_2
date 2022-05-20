@@ -23,7 +23,7 @@ Este laboratório é mais uma das atividades de instrumentação na plataforma d
 
 ## Display de 7 segmentos com 4 dígitos
 
-Crie um novo projeto no Quartus Prime, dentro do diretório `fpga`. Copie o seu `hexto7seg.sv` do [Laboratório 2b](../../lab2/spec/spec-part-b.md) para o novo projeto e, em seguida, faça o que segue:
+Crie um novo projeto no Quartus Prime, dentro do diretório `fpga`. Copie o seu `hexto7seg.sv` do [Laboratório 3b](../../lab3/spec/spec-part-b.md) para o novo projeto e, em seguida, faça o que segue:
 
 1. Desenvolva o módulo `counter4digit` e defina-o como módulo _top-level_ do projeto. Um diagrama de blocos para este módulo é apresentado abaixo logo em seguida.
 
