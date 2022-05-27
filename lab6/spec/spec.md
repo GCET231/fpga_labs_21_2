@@ -91,3 +91,20 @@ Para ajudar a implementar sua FSM, um diagrama de transição de transição de 
 Você deve rotular as entradas sob os arcos e as saídas dentro dos estados (máquina de estados de Moore). Siga o passo-à-passo usual para converter o seu diagrama de estados em um código Verilog (utilize o modelo fornecido no arquivo `lab6_fsm_template.sv`).
 
 > Consulte também o tutorial sobre [Máquinas de Estados Finitos em Verilog](https://gcet231.github.io/#/recursos/fsm) disponível no site do curso.
+
+## Acompanhamento (entrega: sexta-feira 03 de junho, 2022)
+
+Durante a aula esteja pronto para apresentar para o professor ou monitor:
+
+- Os arquivos do laboratório `debouncer.sv`, `fsm.sv`, `updowncounter.sv`, e `stopwatch.sv`.
+- Uma demonstração do seu circuito demonstrando o funcionamento do cronômetro.
+
+## Agradecimentos
+
+Este laboratório é o resultado do trabalho de docentes e monitores de GCET231 ao longo dos anos, incluindo:
+
+- **18.1:** Caio França dos Santos
+- **18.2:** Matheus Rosa Pithon
+- **20.2:** Matheus Rosa Pithon
+- **21.1:** Matheus Rosa Pithon, Éverton Gomes dos Santos
+- **21.2:** Éverton Gomes dos Santos
