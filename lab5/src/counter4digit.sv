@@ -21,7 +21,7 @@ module counter4digit
 		output 	wire [6:0]  HEX0, 				// Display de 7-segmentos (HEX0)
       output 	wire [6:0]  HEX1, 				// Display de 7-segmentos (HEX1)
       output 	wire [6:0]  HEX2, 				// Display de 7-segmentos (HEX2)
-      output 	wire [6:0]  HEX3 				// Display de 7-segmentos (HEX3)
+      output 	wire [6:0]  HEX3 				   // Display de 7-segmentos (HEX3)
 	);
 
    //--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ module counter4digit
 	//--------------------------------------------------------------------------
 	//	Atribuições de entrada
    //--------------------------------------------------------------------------
-	assign reset = KEY[0];
+	assign reset = ~KEY[0];
 	assign clock = CLOCK_50;
 
 	//--------------------------------------------------------------------------
