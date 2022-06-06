@@ -1,4 +1,4 @@
-# Lab 8: Um Caminho de Dados Simples
+# Lab 7: Um Caminho de Dados Simples
 
 <p align="center">Prof. João Carlos Bittencourt</p>
 <p align="center">Monitor: Éverton Gomes dos Santos</p>
