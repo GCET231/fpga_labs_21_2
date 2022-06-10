@@ -25,8 +25,8 @@ Um módulo de memória _single-port_ RAM pode ser especificado em Verilog como a
 Uma RAM _single-port_, por sua vez, recebe um único endereço como entrada, e pode realizar apenas uma operação de leitura ou escrita (determinada por um sinal de habilitação de escrita) para aquele endereço. O código a seguir descreve a parte principal da especificação de uma memória.
 
 ```verilog
-logic [Dbits-1:0] mem [Nloc-1:0]; // define onde o dado está localizado
-logic [Nloc-1:0] addr_reg;        // sinal para armazenar o endereço
+reg [Dbits-1:0] mem [Nloc-1:0]; // define onde o dado está localizado
+reg [Nloc-1:0] addr_reg;        // sinal para armazenar o endereço
 
 always @(posedge clock) begin // escrita acontece a cada pulso de clock
    if(wr) mem[addr] <= din;   // ... mas somente se a escrita estiver ativa
@@ -86,7 +86,7 @@ Primeiramente, você irá projetar um banco de registradores de 3-portas. Isso q
 
 A partir da descrição acima, faça o que é solicitado:
 
-- Abra o esqueleto para um banco de registradores fornecido junto com os arquivos de laboratório ([`register_file.sv`](../src/register_file.sv)), e compare-o com uma implementação típica de módulo RAM (arquivo `ram.sv`). O banco de registradores é diferente da memória RAM no que se refere aos aspectos listados abaixo:
+- Abra o esqueleto para um banco de registradores fornecido junto com os arquivos de laboratório ([`register_file.sv`](../src/register_file.sv)), e compare-o com uma implementação típica de módulo RAM (arquivo `[ram.sv](../src/ram.sv)`). O banco de registradores é diferente da memória RAM no que se refere aos aspectos listados abaixo:
   - três endereços de entrada, no lugar de apenas um (i.e., `ReadAddr1`, `ReadAddr2`,} e `WriteAddr`}).
   - duas saídas de dados, no lugar de apenas uma (e.g., `ReadData1` e `ReadData2`).
   - o sinal de habilitação da escrita e o clock permanecem os mesmos.
@@ -99,7 +99,7 @@ A partir da descrição acima, faça o que é solicitado:
 
 ## Projetando um Caminho de Dados
 
-Projete um módulo _top-level_ que contenha o banco de registradores e sua ALU (do [Lab 3](../../lab2/spec/spec-part-b.md)). Crie um novo arquivo chamado `datapath.sv`. Esse módulo deverá corresponder exatamente ao diagrama de blocos abaixo.
+Projete um módulo _top-level_ que contenha o banco de registradores e sua ALU (do [Lab 2](../../lab2/spec/spec-part-b.md)). Crie um novo arquivo chamado `datapath.sv`. Esse módulo deverá corresponder exatamente ao diagrama de blocos abaixo.
 
 ![Caminho de Dados Final do Banco de Registradores](alu-reg2.png)
 
@@ -170,7 +170,7 @@ Durante a aula esteja pronto para apresentar para o professor ou monitor:
 - Os arquivos Verilog: `register_file.sv` e `datapath.sv`.
 - A simulação para o [caminho de dado](#projetando-um-caminho-de-dados), utilizando o _test bench_ fornecido junto com os arquivos de laboratório.
 
-### Parte 2: Display Baseado em Sprite (entrega: sexta-feira 02 de julho, 2022)
+### Parte 2: Display Baseado em Sprite (entrega: sexta-feira 01 de julho, 2022)
 
 - Uma demonstração de funcionamento do seu display baseado em _sprite_.
 
