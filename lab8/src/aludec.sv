@@ -10,7 +10,7 @@
 // -----------------------------------------------------------------------------
 // Entradas: 
 //    opcode: os 6 bits mais significativos da instrução
-//    funct : a função, no caso de instruções do tipo-r
+//    funct : a função, no caso de instruções do tipo-R
 // -----------------------------------------------------------------------------
 // Saidas:
 // 	aluop: A função escolhida para ser mapeada na ALU
@@ -25,6 +25,21 @@ module aludec(
    output logic [3:0] aluop
 );
 
-   // Implemente seu decodificador da ALU aqui, e então remova este comentário
-
+   always @(*)
+      case(opcode)                        // instruções não-tipo-R
+         `LW,                             // LW
+         `SW,                             // SW
+         `ADDI,                           // ADDI
+         `ADDIU: alufn <= 5'b 0xx01;      // ADDIU
+         ... // adicione as instruções não-tipo-R restantes aqui
+         6'b000000: 
+         case(funct)                      // Tipo-R
+            `ADD,
+            `ADDU:   alufn <= 5'b 0xx01; // ADD e ADDU
+            `SUB:    alufn <= 5'b 1xx01; // SUB
+            ... // adicione as instruções tipo-R restantes aqui
+            default: alufn <= 5'b xxxxx; // função desconhecida
+         endcase
+         default: alufn <= 5'b xxxxx;    // para todas as outras instruções, alufn é um don't-care.
+    endcase
 endmodule

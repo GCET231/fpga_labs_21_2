@@ -6,7 +6,7 @@
 // Editor : Sublime Text 3, tab size (3)
 // -----------------------------------------------------------------------------
 // Module Purpose:
-//    Register file para um processador RISC
+//    Register file para um processador RISC231
 // -----------------------------------------------------------------------------
 // Entradas: 
 //      clock        : clock do sistema

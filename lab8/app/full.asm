@@ -1,7 +1,7 @@
 #############################################################################################
 #
 # João Carlos Bittencourt
-# GCET231: Processador MIPS Single-Cycle
+# GCET231: Processador RISC231-M1 (Single-Cycle)
 # Nov 07, 2019
 #
 # Este é um programa MIPS usado para testar o processador RISC231.

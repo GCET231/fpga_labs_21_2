@@ -1,14 +1,13 @@
-`timescale 1ns / 1ps
 // -----------------------------------------------------------------------------
 // Universidade Federal do Recôncavo da Bahia
 // -----------------------------------------------------------------------------
 // Author : João Carlos Bittencourt
-// File   : risc231_tb.sv
+// File   : risc231_m1_tb.sv
 // Editor : Sublime Text 3, tab size (3)
 // -----------------------------------------------------------------------------
 // Description:
 //
-// Este é um teste auto-verificável para o seu processador RISC231 
+// Este é um teste auto-verificável para o seu processador RISC231-M1 
 // Use o programa de teste para um teste completo, ou seja, inicialize
 // a memória de instruções com full_imem.mem, e a memória de dados com
 // full_dmem.mem.
@@ -24,11 +23,10 @@
 // você pode comentar as linhas relevantes. Certifique-se de comentar a linha
 // de "ERROR_*" correspondente, a qual aparece logo abaixo.
 //
-//////////////////////////////////////////////////////////////////////////////////
+// -----------------------------------------------------------------------------
+`timescale 1ns / 1ps
 
-`include "aluop.svh"
-
-module risc231_tb;
+module risc231_m1_tb;
 
    // Inputs
    logic clk;
@@ -43,33 +41,40 @@ module risc231_tb;
    wire [31:0] mem_readdata   = uut.mem_readdata;           // dado lido da memória de dados
    wire [31:0] mem_writedata  = uut.mem_writedata;          // dado enviado para escrita na memória de dados
 
-   // Signals inside module uut.mips
-   wire        werf           = uut.mips.werf;              // WERF = write enable para o register file
-   wire  [4:0] alufn          = uut.mips.alufn;             // função da ALU
-   wire        Z              = uut.mips.Z;                 // flag Zero
+   // Sinais dentro do módulo uut.risc231_m1
+   wire        werf           = uut.risc231_m1.werf;              // WERF = write enable para o register file
+   wire  [4:0] alufn          = uut.risc231_m1.alufn;             // função da ALU
+   wire        Z              = uut.risc231_m1.Z;                 // flag Zero
 
-   // Signals inside module uut.mips.dp (datapath)
-   wire [31:0] ReadData1      = uut.mips.dp.ReadData1;       // Reg[rs]
-   wire [31:0] ReadData2      = uut.mips.dp.ReadData2;       // Reg[rt]
-   wire [31:0] alu_result     = uut.mips.dp.alu_result;      // saída da ALU
-   wire [4:0]  reg_writeaddr  = uut.mips.dp.reg_writeaddr;   // registrador de destino
-   wire [31:0] reg_writedata  = uut.mips.dp.reg_writedata;   // dado a ser escrito no register file
-   wire [31:0] signImm        = uut.mips.dp.signImm;         // imediado sign-/zero-extended
-   wire [31:0] aluA           = uut.mips.dp.aluA;            // operando A da ALU
-   wire [31:0] aluB           = uut.mips.dp.aluB;            // operando B da ALU
+   // Sinais dentro do módulo uut.risc231_m1.dp (datapath)
+   wire [31:0] ReadData1      = uut.risc231_m1.dp.ReadData1;       // Reg[rs]
+   wire [31:0] ReadData2      = uut.risc231_m1.dp.ReadData2;       // Reg[rt]
+   wire [31:0] alu_result     = uut.risc231_m1.dp.alu_result;      // saída da ALU
+   wire [4:0]  reg_writeaddr  = uut.risc231_m1.dp.reg_writeaddr;   // registrador de destino
+   wire [31:0] reg_writedata  = uut.risc231_m1.dp.reg_writedata;   // dado a ser escrito no register file
+   wire [31:0] signImm        = uut.risc231_m1.dp.signImm;         // imediado sign-/zero-extended
+   wire [31:0] aluA           = uut.risc231_m1.dp.aluA;            // operando A da ALU
+   wire [31:0] aluB           = uut.risc231_m1.dp.aluB;            // operando B da ALU
 
-   // Sinais dentro do módulo uut.mips.c (controller)
-   wire [1:0] pcsel           = uut.mips.c.pcsel;
-   wire [1:0] wasel           = uut.mips.c.wasel;
-   wire sext                  = uut.mips.c.sext;
-   wire bsel                  = uut.mips.c.bsel;
-   wire [1:0] wdsel           = uut.mips.c.wdsel;
-   wire wr                    = uut.mips.c.wr;
-   wire [1:0] asel            = uut.mips.c.asel;
+   // Sinais dentro do módulo uut.risc231_m1.c (controller)
+   wire [1:0] pcsel           = uut.risc231_m1.c.pcsel;
+   wire [1:0] wasel           = uut.risc231_m1.c.wasel;
+   wire sext                  = uut.risc231_m1.c.sext;
+   wire bsel                  = uut.risc231_m1.c.bsel;
+   wire [1:0] wdsel           = uut.risc231_m1.c.wdsel;
+   wire wr                    = uut.risc231_m1.c.wr;
+   wire [1:0] asel            = uut.risc231_m1.c.asel;
 
 
    // Instancia a Unit Under Test (UUT)
-   top #("full_imem.mem", "full_dmem.mem") uut (
+   top #(
+      .Dbits(32),                            // tamanho da palavra do processador
+      .Nreg(32),                             // quantidade de registradores
+      .imem_size(64),                        // tamanho da imem, deve ser >= # de instruções no programa
+      .imem_init("../tests/full_imem.mem"),  // nome do arquivo com o programa a ser carregado na memória de instruções
+      .dmem_size(64),                        // tamanho da dmem, deve ser >= # de palavras em dados do programa + tamanho da pilha
+      .dmem_init("../tests/full_dmem.mem")   // nome do arquivo com o conteúdo inicial da memória de dados
+   ) uut (
       .clk(clk), 
       .reset(reset),
       .enable(enable)
@@ -94,7 +99,7 @@ module risc231_tb;
       #90 $finish;
    end
 
-   // INÍCIO DO CÓDIGO DE AUTO-VERIFICAÇÃO
+   // Código de auto-verificação
 
    selfcheck c();
 
@@ -123,8 +128,8 @@ module risc231_tb;
    wire        c_wr = c.wr;
    wire [1:0]  c_asel = c.asel;
 
-   function mismatch;  // alguns truques necessários para combinar dois valores com don't cares
-      input p, q;      // incompatibilidade em uma posição de bit é ignorada se q tiver um 'x' nesse bit
+   function mismatch;  // ajuste necessário para comparar dois valores com don't cares
+      input p, q;      // diferença em uma posição de bit é ignorada de q tem um 'x' naquele bit
       integer p, q;
       mismatch = (((p ^ q) ^ q) !== q);
    endfunction

@@ -6,7 +6,7 @@
 // Editor : Sublime Text 3, tab size (3)
 // -----------------------------------------------------------------------------
 // Description:
-//  Testbench para a unidade de controle do RISC231
+//  Testbench para a unidade de controle do RISC231-M1
 // -----------------------------------------------------------------------------
 `timescale 1ns / 1ps
 `default_nettype none
@@ -120,12 +120,12 @@ module controller_tb;
 
 
 
-   // SELF-CHECKING CODE
+   // Código de auto-verificação
    
    selfcheck c();  // c(checker_RD1, checker_RD2, checker_ALUResult, checker_FlagZ);
    
-   function mismatch;  // some trickery needed to match two values with don't cares
-       input p, q;      // mismatch in a bit position is ignored if q has an 'x' in that bit
+   function mismatch;   // necessário para comparar dois valores com don't cares
+       input p, q;      // diferença em uma posição de bit é ignorada de q tem um 'x' naquele bit
        integer p, q;
        mismatch = (((p ^ q) ^ q) !== q);
    endfunction
