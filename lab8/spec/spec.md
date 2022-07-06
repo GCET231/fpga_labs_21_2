@@ -18,9 +18,9 @@ Ao longo deste roteiro de laboratório você irá aprender a:
 
 ## Revise os Slides de Aula: Projeto do Processador RISC231-M1
 
-Estude os slides de aula cuidadosamente, e revise os Capítulos 7.1--7.3 do [livro do David e Sarah Harris](https://www.google.com.br/books/edition/Digital_Design_and_Computer_Architecture/SksiEAAAQBAJ?hl=pt-BR&gbpv=0). Revise também o [folheto verde](https://gcet231.github.io/#/recursos/MIPS_Green_Sheet.pdf) do livro Patterson & Hennessy contendo o conjunto de instruções do processador MIPS.
+Estude os slides de aula cuidadosamente, e revise os Capítulos 7.1--7.3 do [livro do David e Sarah Harris](https://www.google.com.br/books/edition/Digital_Design_and_Computer_Architecture/SksiEAAAQBAJ?hl=pt-BR&gbpv=0). Revise também o [folheto verde](https://gcet231.github.io/recursos/MIPS_Green_Sheet.pdf) do livro Patterson & Hennessy contendo o conjunto de instruções do processador MIPS.
 
-> 🎯 Uma versão PDF deste folheto pode ser acessada [aqui](https://gcet231.github.io/#/recursos/MIPS_Green_Sheet.pdf).
+> 🎯 Uma versão PDF deste folheto pode ser acessada [aqui](https://gcet231.github.io/recursos/MIPS_Green_Sheet.pdf).
 
 Apesar de haverem diferenças entre os livros de autoria de Patterson & Hennessy e o livro texto Harris Harris, nós utilizaremos o primeiro. Faremos isso por que o [simulador MARS](http://courses.missouristate.edu/kenvollmar/mars/), que você utilizará para construir seu código assembly, segue o livro do Patterson & Hennessy.
 
