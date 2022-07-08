@@ -167,37 +167,37 @@ module selfcheck();
       
    initial begin
    fork
-   #00 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'bxxxxxxxxxxxx00xx};
-   #01 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001111000000100};
-   #02 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx00001000};
-   #03 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001110100000100};
-   #05 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001110100100100};
-   #06 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001110100110100};
-   #07 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001010101010100};
-   #08 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001x10110000110};
-   #09 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx10xx00010000};
-   #10 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b01xx10xx00010000};
-   #12 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx10xx00010000};
-   #13 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b10xxxxxxxxxx00xx};
-   #14 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b1010xx00xxxx01xx};
-   #15 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100000100};
-   #16 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100010100};
-   #17 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00101000100};
-   #18 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00101010100};
-   #19 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00101100100};
-   #20 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00110110100};
-   #21 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100100100};
-   #22 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100110100};
-   #23 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00110000101};
-   #24 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00110000100};
-   #25 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00110010101};
-   #26 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00110100101};
-   #27 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b11xxxxxxxxxx00xx};
-   #28 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100000100};
-   #29 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100000000};
-   #31 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x00100000100};
-   #32 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx00001000};
-   #33 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx00000000};   
+   #00 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'bxxxxxxxxxxxxx00xx};
+   #01 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b000111100xx010100};
+   #02 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx0xx011000};
+   #03 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b000111010xx010100};
+   #05 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b000111011x0110100};
+   #06 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b000111011x1110100};
+   #07 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00010101x01000100};
+   #08 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0001x101x00100110};
+   #09 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx10xx1xx010000};
+   #10 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b01xx10xx1xx010000};
+   #12 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx10xx1xx010000};
+   #13 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b10xxxxxxxxxxx00xx};
+   #14 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b1010xx00xxxxx01xx};
+   #15 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0010xx010100};
+   #16 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0011xx010100};
+   #17 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x00000100};
+   #18 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x01000100};
+   #19 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x10000100};
+   #20 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x11000100};
+   #21 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0011x0110100};
+   #22 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0011x1110100};
+   #23 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x00100101};
+   #24 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x00100100};
+   #25 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x10100101};
+   #26 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x001x11100101};
+   #27 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b11xxxxxxxxxxx00xx};
+   #28 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0010xx010100};
+   #29 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0010xx010000};
+   #31 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b0000x0010xx010100};
+   #32 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx0xx011000};
+   #33 {pcsel, wasel, sext, bsel, wdsel, alufn, wr, werf, asel} <= {17'b00xx11xx0xx010000};     
    join
    end
 endmodule
