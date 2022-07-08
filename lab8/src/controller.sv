@@ -41,7 +41,7 @@ module controller(
    output wire sext,
    output wire bsel,
    output wire [1:0] wdsel, 
-   output logic [3:0] alufn, 	   // vai virar um wire
+   output logic [4:0] alufn, 	   // vai virar um wire
    output wire wr,
    output wire werf, 
    output wire [1:0] asel
