@@ -18,11 +18,10 @@
 `timescale 1ns / 1ps
 `default_nettype none
 `include "opcode.svh"
-`include "aluop.svh"
 
 module aludec(
    input  wire  [5:0] funct, opcode,
-   output logic [3:0] aluop
+   output logic [4:0] alufn
 );
 
    always @(*)

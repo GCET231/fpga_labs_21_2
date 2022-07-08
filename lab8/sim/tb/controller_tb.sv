@@ -61,7 +61,7 @@ module controller_tb;
    wire sext;
    wire bsel;
    wire [1:0] wdsel; 
-   wire [5:0] alufn;
+   wire [4:0] alufn;
    wire wr;
    wire werf; 
    wire [1:0] asel;

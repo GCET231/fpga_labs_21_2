@@ -24,12 +24,12 @@
 
 module alu(
    input  wire  [31:0] A,B,
-   input  wire  [3:0] aluop,
+   input  wire  [4:0] aluop,
    output logic [31:0] out
 );
 
    // Implemente sua ALU aqui, e em seguida remova este comentário
 
-always_comb out <= A + B;
+   always @(*) out <= A + B;
 
 endmodule
