@@ -138,8 +138,6 @@ Durante a aula esteja pronto para apresentar para o professor ou monitor:
 
 ### Parte 2: Processador RISC231 Monociclo (entrega: sexta-feira 15 de julho, 2022)
 
-ALL of the Verilog files, but skip the ALU and its submodules. Also, the screenshot of the simulation waveforms for the “full” self-checking tester provided.
-
 - **TODOS** os arquivos Verilog, com exceção a ALU e seus sub-módulos.
 - Uma demonstração de funcionamento do seu processador RISC231 utilizando o [testador auto-verificável](../sim/tb/risc231_tb.sv) fornecido junto com os arquivos de laboratório.
 
