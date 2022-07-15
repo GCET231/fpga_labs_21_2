@@ -45,7 +45,7 @@ module risc231_m1 #(
    // NÃO ALTERAR
    wire [1:0] pcsel, wdsel, wasel;
    wire [4:0] alufn;
-   wire Z, sext, bsel, dmem_wr, werf;
+   wire Z, sext, bsel, werf;
    wire [1:0] asel; 
 
    controller c ( .enable(enable), .op(instr[31:26]), .func(instr[5:0]), .Z(Z),
@@ -60,7 +60,7 @@ module risc231_m1 #(
 
    datapath #(.Nreg(Nreg), .Dbits(Dbits)) dp ( .clk(clk), .reset(reset), .enable(enable),
                .pc(pc), .instr(instr),
-               .pcsel(pcsel), .wasel(wasel[1:0]), .sext(sext), .bsel(bsel), 
+               .pcsel(pcsel), .wasel(wasel), .sext(sext), .bsel(bsel), 
                .wdsel(wdsel), .alufn(alufn), .werf(werf), .asel(asel),
                .Z(Z), .mem_addr(mem_addr), .mem_writedata(mem_writedata), .mem_readdata(mem_readdata));
 
