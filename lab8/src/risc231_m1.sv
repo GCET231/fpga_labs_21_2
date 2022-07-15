@@ -33,13 +33,13 @@ module risc231_m1 #(
    // NÃO ALTERAR
    input wire clk, 
    input wire reset,
-   input wire enable,    
-   input wire [31:0] instr, 
-   input wire [31:0] mem_readdata,
+   input wire enable,
    output wire [31:0] pc, 
+   input wire [31:0] instr, 
    output wire mem_wr, 
    output wire [31:0] mem_addr,
-   output wire [31:0] mem_writedata    
+   output wire [31:0] mem_writedata, 
+   input wire [31:0] mem_readdata 
 );
    
    // NÃO ALTERAR
