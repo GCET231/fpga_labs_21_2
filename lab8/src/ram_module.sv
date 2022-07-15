@@ -30,6 +30,8 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
+// NÃO MODIFIQUE *NADA* NO CÓDIGO ABAIXO!!!!!!!
+
 module ram_module #(
    parameter Nloc = 16,                         // Quantidade de posições de memória
    parameter Dbits = 4,                         // Número de bits do dado

@@ -27,6 +27,8 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
+// NÃO MODIFIQUE *NADA* NO CÓDIGO ABAIXO!!!!!!!
+
 module rom_module #(
    parameter Nloc = 16,                         // Quantidade de posições de memória
    parameter Dbits = 4,                         // Número de bits do dado
@@ -34,7 +36,6 @@ module rom_module #(
 )(
    input wire [$clog2(Nloc)-1 : 0] addr,        // Endereço para especificar a posição da memória
                                                 //   número de bits em addr é ceiling(log2(quantidade de posições))
-   input wire [Dbits-1 : 0] din,                // Dado para escrita dentro da memória (se wr==1)
    output logic [Dbits-1 : 0] dout              // Dado lido da memória (assíncrono, ou seja, contínuo)
    );
 
